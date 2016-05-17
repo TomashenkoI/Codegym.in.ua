@@ -15,7 +15,7 @@ public class UnixPathTest {
         String input = "//";
         String expected = "/";
 
-        Assert.assertEquals(unixPath.simplify(input),expected);
+        Assert.assertEquals(unixPath.simplify1(input),expected);
     }
 
     @Test
@@ -23,7 +23,7 @@ public class UnixPathTest {
         String input = "/var//lib";
         String expected = "/var/lib";
 
-        Assert.assertEquals(unixPath.simplify(input),expected);
+        Assert.assertEquals(unixPath.simplify1(input),expected);
     }
 
     @Test
@@ -31,7 +31,7 @@ public class UnixPathTest {
         String input = "/.";
         String expected = "/";
 
-        Assert.assertEquals(expected, unixPath.simplify(input));
+        Assert.assertEquals(expected, unixPath.simplify1(input));
     }
 
     @Test
@@ -39,14 +39,39 @@ public class UnixPathTest {
         String input = "/var//lib/";
         String expected = "/var/lib";
 
-        Assert.assertEquals(expected, unixPath.simplify(input));
+        Assert.assertEquals(expected, unixPath.simplify1(input));
     }
 
     @Test
     public void testSimplify4() throws Exception {
+
         String input = "/var/lib/../log/./../tmp/data///.";
         String expected = "/var/tmp/data";
 
-        Assert.assertEquals(expected, unixPath.simplify(input));
+        Assert.assertEquals(expected, unixPath.simplify1(input));
+    }
+    @Test
+    public void testSimplify5() throws Exception {
+
+        String input = "/var//.///../lib/";
+        String expected = "/lib";
+
+        Assert.assertEquals(expected, unixPath.simplify1(input));
+    }
+    @Test
+    public void testSimplify6() throws Exception {
+
+        String input = "/home/../var/./lib//file.txt";
+        String expected = "/var/lib/file.txt";
+
+        Assert.assertEquals(expected, unixPath.simplify1(input));
+    }
+    @Test
+    public void testSimplify7() throws Exception {
+
+        String input = "/../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../..";
+        String expected = "/";
+
+        Assert.assertEquals(expected, unixPath.simplify1(input));
     }
 }

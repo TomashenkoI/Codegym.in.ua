@@ -38,15 +38,4 @@ public class RectangleSquare {
         }
         return totalArea;
     }
-
-
-    public static void main(String[] args) {
-        RectangleSquare rectangleSquare = new RectangleSquare();
-        int[] x = {0, 10};
-        int[] h = {10, 10};
-        int[] w = {10, 10};
-
-        int totalArea =rectangleSquare.measure(x,h,w);
-
-    }
 }

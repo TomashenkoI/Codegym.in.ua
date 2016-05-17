@@ -14,12 +14,4 @@ public class PositiveAverageNumber {
 
         return result;
     }
-
-    public static void main(String[] args) {
-        PositiveAverageNumber positiveAverageNumber = new PositiveAverageNumber();
-        int a = 1073741824;
-        int b = 1073741824;
-
-        System.out.println(positiveAverageNumber.average(a, b));
-    }
 }

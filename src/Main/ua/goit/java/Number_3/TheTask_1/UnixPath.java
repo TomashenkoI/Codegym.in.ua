@@ -76,7 +76,6 @@ public class UnixPath {
 
     public static void main(String[] args) {
         String input = "/../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../..";
-
         UnixPath up = new UnixPath();
         System.out.println(up.simplify1(input));
     }

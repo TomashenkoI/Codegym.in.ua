@@ -16,18 +16,4 @@ public class FirstOddNumber {
         }
         return firstOdd;
     }
-
-    public static void main(String[] args) {
-        int firstOdd = -1;
-        int[] input = {2, 4, 4, 7, 1, 1, 8};
-
-        for (int i = 0; i < input.length; i++) {
-            int a = input[i] % 2;
-            if (a != 0) {
-                firstOdd = i;
-                break;
-            }
-        }
-        System.out.println(firstOdd);
-    }
 }

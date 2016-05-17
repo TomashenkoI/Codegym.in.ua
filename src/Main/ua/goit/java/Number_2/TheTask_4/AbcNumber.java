@@ -23,28 +23,4 @@ public class AbcNumber {
         result = Integer.parseInt(builder.toString());
         return result;
     }
-
-    public static void main(String[] args) {
-        String num = "bcd";
-        int result = 0;
-        int i = 0;
-
-        HashMap<Character, Integer> letters = new HashMap<>();
-        for (char c = 'a'; c <= 'z'; c++) {
-            letters.put(c, i);
-            i++;
-        }
-        System.out.println(letters);
-        StringBuilder builder = new StringBuilder();
-        builder.append(num);
-        System.out.println(builder);
-        for (int j = 0; j < builder.length(); j++) {
-            int c1 = letters.get(j);
-            char c = (char) c1;
-            builder.setCharAt(j, c);
-        }
-        System.out.println(builder);
-//        result = Integer.parseInt(builder.toString());
-        System.out.println(result);
-    }
 }

@@ -14,8 +14,4 @@ public class FindMaxNumber {
         }
         return max;
     }
-
-    public static void main(String[] args) {
-//        max()
-    }
 }

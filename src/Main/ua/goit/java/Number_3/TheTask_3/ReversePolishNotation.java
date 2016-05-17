@@ -9,11 +9,6 @@ import java.util.StringTokenizer;
  */
 public class ReversePolishNotation {
     public static int evaluate(String expression) {
-//        HashMap<String, Integer> operations = new HashMap<String, Integer>();
-//        operations.put("*", 1);
-//        operations.put("/", 1);
-//        operations.put("+", 2);
-//        operations.put("-", 2);
         ArrayList<String> list = new ArrayList<>();
         list.add("*");
         list.add("/");
@@ -41,11 +36,5 @@ public class ReversePolishNotation {
             }
         }
         return Integer.parseInt(stack.pop().toString());
-    }
-
-    public static void main(String[] args) {
-        String expression = "12 2 * 3 + 5 -";
-        int result = evaluate(expression);
-        System.out.println(result);
     }
 }

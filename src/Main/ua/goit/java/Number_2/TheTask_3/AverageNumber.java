@@ -17,10 +17,6 @@ public class AverageNumber {
         if (a == b) {
             result = a;
         }
-
         return result;
-    }
-
-    public static void main(String[] args) {
     }
 }

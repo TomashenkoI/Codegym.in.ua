@@ -7,52 +7,6 @@ import java.util.Stack;
  * Created by 7 on 07.05.2016.
  */
 public class UnixPath {
-    //    public void redactor(int a, StringBuilder builder, int i) {
-//        if (a == 0) {
-//            builder.deleteCharAt(int i)
-//        }
-//    }
-    public String simplify(String input) {
-        String result = "";
-
-        int count = 0;
-        StringBuilder builder = new StringBuilder();
-        StringBuilder builder1 = new StringBuilder();
-        builder.append(input);
-
-        for (int a = 0; a < builder.length(); a++) {
-            builder.append(" ");
-            for (int i = 0; i < builder.length(); i++) {
-                if (builder.charAt(i) == '/' && builder.charAt(i + 1) == '/') {
-                    builder.deleteCharAt(i + 1);
-                }
-                if (builder.charAt(i) == '/' && builder.charAt(i + 1) == '.') {
-                    builder.deleteCharAt(i + 1);
-                }
-            }
-            builder.deleteCharAt(builder.length() - 1);
-            if (builder.length() > 1) {
-                builder.reverse();
-                if (builder.charAt(0) == '/') {
-                    builder.deleteCharAt(0);
-                }
-                builder.reverse();
-            }
-        }
-        result = builder.toString();
-        for (int i = builder.length() - 1; i > 0; i--) {
-            if (builder.charAt(i) == '/') {
-                if (count == 0) {
-                    count++;
-                } else {
-                    result = "/var" + builder.substring(i, builder.length());
-                    break;
-                }
-            }
-        }
-        return result;
-    }
-
     public String simplify1(String input) {
         int count = 0;
         int start = 0;
@@ -82,8 +36,8 @@ public class UnixPath {
 
         StringBuilder result = new StringBuilder();
         result.append("/");
+
         Stack newStack = new Stack();
-        System.out.println(stack);
 
         while (!stack.isEmpty()) {
             if (!operations.containsKey(stack.peek())) {
@@ -121,13 +75,8 @@ public class UnixPath {
 
 
     public static void main(String[] args) {
-//        String input = "/var/lib/../log/./../tmp/data///.";
         String input = "/../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../..";
-//        String input = "/var//lib"; //!
-//        String input = "/var//.///../lib/";
-//        String input = "/../lib/";
-//        String input = "/var//lib";
-//        String input = "/home/../var/./lib//file.txt";
+
         UnixPath up = new UnixPath();
         System.out.println(up.simplify1(input));
     }
